@@ -15,30 +15,37 @@ class Navigation extends Component {
   constructor(props){
     super(props)
     this.state={
-      selectedTop:"0px"
+      selectedTop:"0px",
+      selectedLeft:"0px",
+      selectedWidth:"",
     }
   }
   goToTab(index){
+    let node = ReactDOM.findDOMNode(this.refs[index]).getBoundingClientRect()
     this.setState({
-      selectedTop:`${(index + 1) * 70}px`
+      selectedLeft:`${node.left}px`,
+      selectedWidth:`${node.width}px`,
+      selectedTop:`${node.top}px`
     })
   }
   render() {
     return (
-      <div className="tabs-container">
-        <div className="selected" style={{top:this.state.selectedTop}}/>
-        <div className="nav-icon">
-          MONI<span className="amp">&</span>MOMMY
+      <div className="nav-container">
+        <div className="selected" style={{top:this.state.selectedTop, left:this.state.selectedLeft, width:this.state.selectedWidth}}/>
+        <div ref="0" className="nav-icon" onClick={this.goToTab.bind(this,0)}>
+          <span className="nav-icon-text">mom<span className="amp">Y</span>moni</span>
         </div>
+        <div className="tabs-container">
         {tabs.map((tab, i)=>{
           return(
             <Link to={`/${tab}`}>
-              <div ref={i} className="tab" onClick={this.goToTab.bind(this,i)}>
-                    {tab}
+              <div ref={i+1} className="tab" onClick={this.goToTab.bind(this,i+1)}>
+                {tab}
               </div>
             </Link>
           )
         })}
+        </div>
       </div>
     );
   }

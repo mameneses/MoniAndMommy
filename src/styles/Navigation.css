@@ -1,4 +1,4 @@
-.tabs-container {
+.nav-container {
   position: absolute;
   left: 0px;
   top: 0px;
@@ -10,16 +10,25 @@
 
 .nav-icon {
   float: left;
-  padding: 20px 0px 0px;
   text-align: center;
   width: 100%;
-  height:49px;
+  height:70px;
   font-size: 22px;
   color:#ffffff;
   background-color: rgba(176,233,255, 0.5);
+  line-height: 70px;
+}
+.nav-icon-text {
+  display: inline-block;
+  vertical-align: middle;
 }
 .nav-icon .amp{
   color: #ffbc68
+}
+.tabs-container{
+  display:inline-block;
+  float: left;
+  width: 100%;
 }
 
 .tab {
@@ -43,7 +52,34 @@ a{
   top:0px;
   left:0px;
   right:0px;
-  background-color: rgba(176,233,255, 0.5);
+  background-color: rgba(255,255,255, 0.1);
   border-radius: 0px 5px 5px 0px;
-  transition: top .4s;
+  transition: all .4s;
+}
+
+@media (max-width: 900px) {
+  .nav-container {
+    left: 0px;
+    top: 0px;
+    bottom: none;
+    right: 0px;
+    height: 70px;
+    border-bottom: 1px solid black;
+    background-color: #4096f6;
+    width:100%;
+    position: relative;
+  }
+  .tabs-container{
+    width: calc(100% - 220px);
+  }
+  .tab{
+    width: 20%;
+    float:left;
+  }
+  .nav-icon{
+    width:220px;
+  }
+  .selected{
+    width: 220px;
+  }
 }

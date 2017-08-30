@@ -4,4 +4,51 @@
   left: 220px;
   right: 0px;
   bottom: 0px;
+  overflow: scroll;
+  padding:50px;
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    top: 70px;
+    left: 0px;
+  }
+}
+
+h1 {
+  font-family: Bookman;
+  font-size: 40px
+}
+
+h3 {
+  font-family: Helvetica;
+}
+
+p {
+  font-family: Trebuchet MS;
+}
+
+.number{
+  background: #ffbc68;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.item-container{
+  display: block;
+  margin-bottom: 40px;
+  clear: both;
+}
+
+.list-image-container{
+  width: 30%;
+  float: left;
+}
+.list-image-container img{
+  max-height: 200px;
+}
+
+.list-text-container{
+  width: 70%;
+  float: left;
 }
